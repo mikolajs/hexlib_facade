@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>The Scala.js Tutorial</title>
+  </head>
+  <body>
+    <!-- Include Scala.js compiled code -->
+    <script type="text/javascript" src="./target/scala-3.2.0/hexlibjs-opt/main.js"></script>
+    <script>
+       var hex = Hex(10, 10);
+       var pathFinder = PathFinder(hex);
+       var hexLib = HexLibrary(hex, pathFinder);
+       console.log(hexLib.distance(1,1, 4, 5));
+       console.log(hexLib.neighbours(2, 3, 1));
+       let worldMap = [
+       	[1, 1, -1, 1, 1, 1, 2, 3, 2, 1],
+       	[1, 1, -1, 1, 1, 2, 2, 1, 2, 1],
+       	[2, 2, -1, 1, 1, 1, 2, 3, 2, 1],
+       	[1, 1, 1, 1, 1, -1, 2, 3, 2, 1],
+       	[1, 1, -1, 1, 3, 3, 2, 3, 2, 1],
+       	[1, 2, -1, 1, 3, 3, 2, 3, 2, 1],
+       	[1, 3, 1, 1, -1, -1, 2, 3, 2, 1],
+       	[1, 2, 1, 1, -1, 1, 3, 1, 2, 1],
+       	[1, 1, -1, -1, 1, 1, 2, 1, 2, 1],
+       	[1, 1, -1, 1, 1, 1, 2, 2, 2, 1],
+       ];
+       let path = hexLib.findPath(0, 1, 8, 9, worldMap);
+       console.log(path);
+       console.log(hexLib.countPath(path, worldMap)); 
+    </script>
+  </body>
+</html>
